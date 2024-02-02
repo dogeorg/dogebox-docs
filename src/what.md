@@ -1,4 +1,4 @@
-# DogeBox - Dogecoin Blockchain in a Box
+# What is DogeBox?
 
 <p><img src="images/dogebox-logo.png" alt="DogeBox - Dogecoin Blockchain in a Box" width="60%" style="margin-left: 20%;"/></p>
 
