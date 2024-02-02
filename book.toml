@@ -1,0 +1,6 @@
+[book]
+authors = ["qlpqlp"]
+language = "en"
+multilingual = false
+src = "src"
+title = "DogeBox - Dogecoin Blockchain in a Box"
