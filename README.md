@@ -1,2 +1,2 @@
 # dogebox-docs
-Documentation for DogeBox, available at dogebox.dogecoin.org
+Website for DogeBox, available at dogebox.dogecoin.org
