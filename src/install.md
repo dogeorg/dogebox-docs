@@ -23,3 +23,9 @@ system, for direct help be sure to join the [Developer Discord Server](https://d
 - [Install directly on any x86 computer as the host OS](./x86.md)
 - [Install images for various Virtual Machines](./vms.md)
 - [How to build the above images from source](./source_images.md)
+
+
+# Initial Setup
+On first-boot your Dogebox will enter Setup Mode
+
+TBD

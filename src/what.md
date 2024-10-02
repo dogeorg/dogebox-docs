@@ -9,6 +9,9 @@ The objective: to provide a decentralised platform for the development,
 distribution and self-hosting of software (we call them PUPs) that will 
 bring real utility to the Dogecoin ecosystem and drive adoption.
 
+
+## [>>> Join the Dogebox Developer Discord for Help <<<](https://discord.gg/VEUMWpThg9)
+
 ## What's in the box? 
 
 Dogebox is a locked down custom configuration of NixOS Linux which includes
