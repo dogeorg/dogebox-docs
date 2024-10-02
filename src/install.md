@@ -16,6 +16,9 @@ and a number of other ARM SBCs.
 
 ### DIY Installation options
 
+There are various options for installing Dogebox on your own
+system, for direct help be sure to join the [Developer Discord Server](https://discord.gg/VEUMWpThg9)
+
 - [Install directly on a FriendlyElec T6 ARM](./arm.md)
 - [Install directly on any x86 computer as the host OS](./x86.md)
 - [Install images for various Virtual Machines](./vms.md)
