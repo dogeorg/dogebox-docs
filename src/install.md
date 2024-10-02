@@ -2,7 +2,7 @@
 
 ## Pre-installed hardware
 The Dogecoin Foundation offers pre-installed NanoPC-T6's 
-running Dogebox which are available for purchase at [dogebox.dogecoin.org](https://dogebox.dogecoin.org).
+running Dogebox which are available for purchase at [link comming soon](#).
 
 <p><img src="images/dbox.jpg" alt="Dogebox" width="70%" style="margin-left: 15%;"/></p>
 
