@@ -12,7 +12,7 @@ virtual machine image for a number of platforms. Dogebox
 is also developed to run natively on the [FriendlyElec NanoPC-T6](https://www.friendlyelec.com/index.php?route=product/product&product_id=292) 
 and a number of other ARM SBCs.
 
-<p><img src="images/t6.jpg" alt="FriendlyElec NanoPC-T6" width="70%" style="margin-left: 15%;"/></p>
+<p><img src="images/T6.jpg" alt="FriendlyElec NanoPC-T6" width="70%" style="margin-left: 15%;"/></p>
 
 ### DIY Installation options
 
@@ -20,5 +20,3 @@ and a number of other ARM SBCs.
 - [Install directly on any x86 computer as the host OS](./x86.md)
 - [Install images for various Virtual Machines](./vms.md)
 - [How to build the above images from source](./source_images.md)
-
-
