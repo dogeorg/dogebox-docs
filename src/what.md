@@ -78,7 +78,7 @@ or key derivation.
 DogeNet is a service that implements the _Doge Gossip Protocol_, which is a 
 multi-channel protocol for communicating among Dogenet nodes. 
 
-It is a foundational piece for future experimental protocols (ComPoS / Sakura), 
+It is a foundational piece for future experimental protocols (Project Sakura), 
 and provides useful side-channels for Dogecoin adjacent projects to communicate 
 without polluting the Dogecoin blockchain, where simple peer-to-peer 
 communication is sufficient.
