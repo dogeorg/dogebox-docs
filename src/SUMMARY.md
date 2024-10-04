@@ -4,10 +4,10 @@
 
 - [Introduction](./what.md)
 - [Installation](./install.md)
-  - [FriendlyElec T6 ARM](./arm.md)
-  - [x86](./x86.md)
   - [Virtual Machines](./vms.md)
+  - [Bare Metal](./hardware.md)
   - [Building images from source](./source_images.md)
+  - [Inbound Ports: 22556 (core), 42069 (Dogenet)](./ports.md)
 - [Installing Pups](./pup_install.md)
 - [Developing Pups](./pup_development.md)
   - [DRE (Dogecoin Runtime Environment)](./pup_dev_dre.md)
