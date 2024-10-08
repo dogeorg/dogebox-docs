@@ -15,12 +15,21 @@ These things will all be fixed in a following release. This release is for tinke
 - There is no storage selector. You must manually install NixOS to the internal EMMC (or NVME drive, if you have one installed) if you want to install anything that requires more disk space (eg. Dogecoin Core)
 - WiFi configuration during initial setup is currently not supported. The box must be connected to ethernet when you first boot Dogebox OS.
 
-## How to flash MicroSD
+## How to flash MicroSD using `dd if=`
 
- - Download the .img.gz file attached to the release.
- - Uncompress the image so you get the raw .img file.
- - On Linux & MacOS, use dd if= to write the file to the raw MicroSD device.
- - On Windows, use a raw image disk writer UI. There are multiple available.
+- Download the `.img.gz` file attached to the release.
+- Uncompress the image so you get the raw `.img` file.
+- On Linux & MacOS, use `dd if=` to write the file to the raw MicroSD device.
+- On Windows, use a raw image disk writer UI. There are multiple available.
+
+## How to flash MicroSD using `Rufus`
+
+You can easly flash using the OpenSource Rufus Tool that you can get the latest version here for your operating system: [https://github.com/pbatard/rufus/releases](https://github.com/pbatard/rufus/releases)
+
+- Open `Rufus`
+- On `Device` select your Micro SD card
+- Click on `Select` and Choose the file you downloaded and decompressed `.img`
+- Click on `Start` and wait a few minutes to finish
 
 ## How to Setup
 

@@ -1,6 +1,24 @@
 [book]
+title = "DogeBox - Dogecoin Blockchain in a Box"
+description = "Dogebox is a Linux server distribution and custom server software built specifically to meet the needs of the Dogecoin community."
 authors = ["qlpqlp", "tjstebbing", "s1w"]
 language = "en"
-multilingual = false
 src = "src"
-title = "DogeBox - Dogecoin Blockchain in a Box"
+
+[output.html]
+mathjax-support = true
+git-repository-url = "https://github.com/dogeorg/dogebox/"
+edit-url-template = "https://github.com/dogeorg/dogebox-docs/edit/main/{path}"
+
+[output.html.playground]
+editable = true
+line-numbers = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
