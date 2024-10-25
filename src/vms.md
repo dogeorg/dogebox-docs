@@ -88,3 +88,4 @@ If you want to stop your DogeBox Virtual Machine:
 - Enter command `sudo shutdown -h now` to shut down cleanly.
 
 It's a good idea to do this every time you want to shut down the DogeBox, otherwise stopping it with the Stop button risks corrupting the virtual disk image, and you would have to delete the virtual machine and start over.
+
