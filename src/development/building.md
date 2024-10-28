@@ -1,16 +1,14 @@
 # Building Dogebox
 
-
 Building images for Dogebox requires the Dogebox repository
 
 [https://github.com/dogeorg/dogebox/](https://github.com/dogeorg/dogebox/)
 
 For help building images be sure to join [Developer Discord Server](https://discord.gg/VEUMWpThg9)
 
-
 ## SD and SD installer images for the NanoPC-T6
 
-Start by building a disk image containing the root filesystem.  Assuming you are in an environment containing nix-shell, from the root of this repository run
+Start by building a disk image containing the root filesystem. Assuming you are in an environment containing nix-shell, from the root of this repository run
 
 ```
 nix-shell
@@ -31,9 +29,10 @@ cd sd-fuse_rk3588
 mkdir nixos-arm64
 ```
 
-sd-fuse wants an android sparse image and we have a raw full-disk image.  The following mount command mounts the partition inside the full disk image and build-rootfs-img.sh builds an android sparse image from the mounted directory and puts the result in nixos-arm64/rootfs.img
+sd-fuse wants an android sparse image and we have a raw full-disk image. The following mount command mounts the partition inside the full disk image and build-rootfs-img.sh builds an android sparse image from the mounted directory and puts the result in nixos-arm64/rootfs.img
 
 If /mnt is in use, use another location for the temporary mount.
+
 ```
 mount -o loop,offset=$((2048 * 512)) <location of the image created in the first step> /mnt
 ./build-rootfs-img.sh /mnt nixos-arm64
@@ -42,6 +41,7 @@ umount /mnt
 
 You can use prebuilt artifacts from this point, but if you intend to build the u-boot bootoarder from source, clone it's repository.
 If aarch64 cross compiling is not set up, the build script shoul fail with instructions containing what it's looking for.
+
 ```
 cd out
 git clone https://github.com/dogeorg/uboot-rockchip.git uboot-rk3588
@@ -52,6 +52,7 @@ cd ../../
 ```
 
 Add any remaining artifacts to the 'nixos-arm64' directory
+
 ```
 idbloader.img
 uboot.img
@@ -63,6 +64,7 @@ boot.img
 ```
 
 Run the image builing script
+
 ```
 ./mk-sd-image.sh nixos-arm64
 ```
@@ -117,4 +119,3 @@ Generates a VMDK file that can be used by VMware or VirtualBox VMs directly
 If you'd prefer a VDI, you can convert with `VBoxManage clonehd --format VDI <from>.vmdk <to>.vdi`
 
 Generating a VDI out of the box with `-f virtualbox` doesn't appear to be working currently with the default config.
-

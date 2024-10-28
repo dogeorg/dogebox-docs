@@ -1,12 +1,52 @@
 # Summary
 
-# What is DogeBox?
+# Getting Started
 
-- [Introduction](./what.md)
-- [Installation](./install.md)
-  - [Virtual Machines](./vms.md)
-  - [Bare Metal](./hardware.md)
-  - [Building images from source](./source_images.md)
-  - [Inbound Ports: 22556 (core), 42069 (Dogenet)](./ports.md)
-- [Installing Pups](./pup_install.md)
-- [DRE Development Environment](./development_environment.md)
+- [Introduction](./getting_started/introduction.md)
+- [Screenshots]()
+
+# Installation
+
+- [Getting Dogebox](./installation/getting.md)
+- [Bare Metal](./installation/metal.md)
+- [Virtual Machines](./installation/vms.md)
+
+  - [Virtualbox](./installation/vms/virtualbox.md)
+  - [UTM](./installation/vms/utm.md)
+  - [Generic VM](./installation/vms/generic.md)
+
+- [NanoPC T6](./installation/t6.md)
+
+  - [Purchasing]()
+  - [(Optional) Hardware Setup]()
+
+- [Dogebox Initial Setup](./installation/setup.md)
+  - [Disk Installation](./installation/setup/disk.md)
+  - [Configuration](./installation/setup/configuration.md)
+
+# How To
+
+- [Recovery Mode]()
+- [Installing Pups](./howto/pups.md)
+- [Forwarding Required Ports](./howto/ports.md)
+- [Updating & Upgrading]()
+
+---
+
+# Dogebox Development
+
+- [Development Environment Setup](./development/dre.md)
+- [Building Dogebox](./development/building.md)
+- [Pup Development]()
+
+  - [Manifest]()
+  - [Nix File]()
+  - [Dependencies]()
+  - [Communication]()
+  - [Metrics]()
+
+- [Dogeboxd]()
+- [DPanel]()
+
+- [Dogenet]()
+  - [Handlers]()

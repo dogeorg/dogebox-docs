@@ -1,1 +1,0 @@
-# DRE (Dogecoin Runtime Environment)
