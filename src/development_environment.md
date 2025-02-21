@@ -114,7 +114,7 @@ This is how a configuration.nix file appears for a developer running Orbstack on
       # Include the OrbStack-specific configuration.
       ./orbstack.nix
       # Include the Dogebox specific configuration
-      "/home/patowens/data/nix/dogebox.nix"
+      "/home/pat/data/nix/dogebox.nix"
     ];
 
   # Enable these necessary experimental features
@@ -125,14 +125,14 @@ This is how a configuration.nix file appears for a developer running Orbstack on
 
   security.wrappers.dbx = {
     source = "/Users/pat/dev/dogeboxd/build/dbx";
-    owner = "patowens";
+    owner = "pat";
     group = "users";
   };
 
   security.wrappers.dogeboxd = {
     source = "/Users/pat/dev/dogeboxd/build/dogeboxd";
     capabilities = "cap_net_bind_service=+ep";
-    owner = "patowens";
+    owner = "pat";
     group = "users";
   };
 
