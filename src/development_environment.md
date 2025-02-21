@@ -97,7 +97,7 @@ security.wrappers._dbxroot = {
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 ```
 
-#### Example modified configuration file
+#### Example modified configuration file (specific to Macos+Orbstack users)
 
 This is how a configuration.nix file appears for a developer running Orbstack on Macos.
 
