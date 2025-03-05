@@ -1,121 +1,73 @@
 # Building Dogebox
 
-Building images for Dogebox requires the Dogebox repository
+Building images for Dogebox requires the Dogebox repository, and a Linux OS with nix tooling installed.
 
 [https://github.com/dogeorg/dogebox/](https://github.com/dogeorg/dogebox/)
 
 For help building images be sure to join [Developer Discord Server](https://discord.gg/VEUMWpThg9)
 
-## SD and SD installer images for the NanoPC-T6
+## Installer image for the NanoPC T6
 
-Start by building a disk image containing the root filesystem. Assuming you are in an environment containing nix-shell, from the root of this repository run
+### Building
+
+<div class="warning">
+Please note: This will take a while on first build, as the T6 image needs to compile the linux kernel initially.
+</div>
+
+To build an image for the T6, open a shell in the root of this repository and then run the following.
 
 ```
 nix-shell
-make nanopc-T6
+make t6
 ```
 
-Take a note of the location of the built image.
+The resulting image will end up as `result/dogebox-*-t6.img`.
 
-The SD images are built with a fork of FriendlyElec's sd-fuse_rk3588 for now. The following steps will be automated or replaced.
+### Copying to MicroSD Card
 
-### SD
+<details>
+  <summary>MacOS</summary>
 
-Clone sd-fuse and create a directory for the components
+If building the image from within an Orb VM, you need to copy this image out to your host first:
 
-```
-git clone https://github.com/dogeorg/sd-fuse_rk3588 https://github.com/dogeorg/sd-fuse_rk3588.git
-cd sd-fuse_rk3588
-mkdir nixos-arm64
-```
+1. `cp result/*.img /private/tmp`.
 
-sd-fuse wants an android sparse image and we have a raw full-disk image. The following mount command mounts the partition inside the full disk image and build-rootfs-img.sh builds an android sparse image from the mounted directory and puts the result in nixos-arm64/rootfs.img
+This will move the image file to the `/tmp` directory.
 
-If /mnt is in use, use another location for the temporary mount.
+On your host:
 
-```
-mount -o loop,offset=$((2048 * 512)) <location of the image created in the first step> /mnt
-./build-rootfs-img.sh /mnt nixos-arm64
-umount /mnt
-```
+1. `brew install pv` to get tooling for progress.
+2. Run `sudo diskutil list` and find the `/dev/` device for your MicroSD card.
+3. Unmount the MicroSD card with `sudo diskutil umountDisk /dev/disk100000` (replace with proper disk number)
+4. Run `sudo dd if=/tmp/dogebox-*-t6.img | sudo pv | sudo dd of=/dev/rdisk10000 bs=16m` (note: `rdisk` here, not `disk`, and replace with proper disk number)
 
-You can use prebuilt artifacts from this point, but if you intend to build the u-boot bootoarder from source, clone it's repository.
-If aarch64 cross compiling is not set up, the build script shoul fail with instructions containing what it's looking for.
+</details>
 
-```
-cd out
-git clone https://github.com/dogeorg/uboot-rockchip.git uboot-rk3588
-cd uboot-rk3588
-git checkout nanopi6-v2017.09
-cd ../../
-./build-uboot.sh nixos-arm64 nanopc-t6
-```
+<details>
+  <summary>Linux</summary>
 
-Add any remaining artifacts to the 'nixos-arm64' directory
+1. Install PV using your fav/os package manager.
+2. Determine disk device.
+3. `sudo dd if=/path/to/dogebox-t6.img | sudo pv | sudo dd of=/dev/disk10000 bs=16m` (replace with proper disk number)
 
-```
-idbloader.img
-uboot.img
-misc.img
-dtbo.img
-resource.img
-kernel.img
-boot.img
-```
+</details>
 
-Run the image builing script
+<details>
+  <summary>Windows</summary>
 
-```
-./mk-sd-image.sh nixos-arm64
-```
+TODO
 
-This will output an image to out/<rk3588-sd-nixos-arm64-YYYYMMDD.img>
+</details>
 
-u-boot's 'distro boot' expects to find an active partition, so we'll need to set that flag on the rootfs partition.
+## Other image types.
 
-```
-fdisk <image>
-x
-A
-8
-r
-w
-```
+Available types:
 
-## Container/VM images
+- `iso-aarch64`
+- `iso-x86_64`
+- `qemu-aarch64`
+- `qemu-x86_64`
+- `vbox-x86_64`
+- `vm-x86_64`
 
-Quick notes on building a container or VM image from a configuration.nix file:
-
-- Make sure the configuration.nix doesn't mention a bootloader, an appropriate one is included automatically and one defined here can conflict.
-
-- Install `nixos-generators`, if you have the nix package manager or are running NixOS you can just run 'nix-shell -p nixos-generators'
-
-- Build the desired image with `nixos-generate -c configuration.nix -f $format`
-
-Tested image formats include: `docker`, `install-iso`, `iso`, `lxc`, `lxc-metadata`, `proxmox-lxc`, `qcow`, `vmware`
-
-- The build output should tell you the name and location of the built image.
-
-### 'docker' for docker/podman
-
-Use `docker import` or 'podman import' to generate a container image. You will need to manually specify a run CMD.
-
-### 'install-iso / iso' for optical media images
-
-Generates a bootable iso, `install-iso` will give you an installer, `iso` will be a live CD.
-
-### 'lxc / lxc-metadata, proxmox-lxc' for linux containers
-
-Use `lxc` and `lxc-metadata` for a manual container, or load the file generated by `proxmox-lxc` as a CT template to generate a container in proxmox.
-
-### 'qcow' for qemu qcow2
-
-Can be used as a disk image for qemu.
-
-### 'vmware' for VMWare and VirtualBox
-
-Generates a VMDK file that can be used by VMware or VirtualBox VMs directly
-
-If you'd prefer a VDI, you can convert with `VBoxManage clonehd --format VDI <from>.vmdk <to>.vdi`
-
-Generating a VDI out of the box with `-f virtualbox` doesn't appear to be working currently with the default config.
+Build the resulting image with: `make <type>`.
