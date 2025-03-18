@@ -14,7 +14,7 @@ Here we have some basic system configuration options.
 
 #### Device Name
 
-This is what your devices `hostname` will be set to. This may be used for additional features in the future.
+This is what your devices `hostname` will be set to. The value chosen here will determine the mDNS address you will be able to access the WebUI with later on. E.g. if you choose `my-dogebox` then you'll be able to access the WebUI at https://my-dogebox.local:8080/.
 
 #### Keyboard Layout
 

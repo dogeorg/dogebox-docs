@@ -1,5 +1,9 @@
 # Dogebox Initial Setup
 
+On the first boot of your dogebox, the system will be available on https://dogebox.local:8080/.
+
+In case your network blocks mDNS, which can happen in some cases use the following methods to determine the IP address of the machine.
+
 ## Determine your IP address
 
 <div class="warning">
@@ -24,7 +28,7 @@ Unfortunately this is out-of-scope for this documentation, but a quick google of
 
 ## Visit setup UI
 
-Once you've got your IP address, continue setup by visiting the Web UI. This is hosted on port `8080` on the IP address.
+Once you've got your IP address or confirmed the box is available on dogebox.local, continue setup by visiting the Web UI. This is hosted on port `8080`.
 
 eg. If your IP address is `192.168.0.2`, you should visit `http://192.168.0.2:8080` in your browser.
 
